@@ -1,71 +1,77 @@
-import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 // Product type definition
 type ProductProps = {
   title: string;
   description: string;
-  imageUrl: string;
+  features: string[];
+  // imageUrl: string;
   reversed?: boolean;
-  index: number;
+  isEarlyPreview?: boolean;
+  link: string;
 };
 
 const ProductCard = ({
   title,
   description,
-  imageUrl,
+  features,
+  // imageUrl,
   reversed,
-  index,
+  isEarlyPreview,
+  link,
 }: ProductProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-      viewport={{ once: true, amount: 0.4, margin: "-100px" }}
+    <div
       className={`flex flex-col ${
         reversed ? "md:flex-row-reverse" : "md:flex-row"
-      } gap-8 items-center mb-12 last:mb-0`} // Reduced mb-24 to mb-12
+      } gap-8 items-center mb-32 last:mb-0`} // Reduced mb-24 to mb-12
     >
       {/* Content Column */}
       <div className="flex-1">
-        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-          {title}
-        </h3>
-        <p className="text-gray-600 mb-6">{description}</p>
-        <div>
-          <a
-            href="#"
-            className="inline-flex items-center text-purple-600 font-medium hover:text-purple-800 transition-colors"
-          >
-            Learn more
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </a>
+        <div className="flex items-center justify-between py-6">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+            {title}
+          </h3>
+
+          {isEarlyPreview && (
+            <button className="text-[16px] tracking-wide px-4 py-2 space-x-4 flex items-center justify-center rounded-full text-blue-900 border-blue-900 border-1 pr-4 bg-blue-700/20">
+              Early preview
+              <img src="./images/stars.svg" width={20} />
+            </button>
+          )}
         </div>
+        <p className="text-gray-600 mb-6 text-[17px]">{description}</p>
+
+        <ul className="flex text-[17px] flex-col items-start justify-start space-y-3 py-4 pb-12">
+          {features.map((feature, index) => {
+            return (
+              <div
+                key={index}
+                className="flex items-center justify-center space-x-2"
+              >
+                <Button variant="default" size="icon" className="size-7 p-0">
+                  <img src="./images/check-mark.svg" width={22} />
+                </Button>
+
+                <span>{feature}</span>
+              </div>
+            );
+          })}
+        </ul>
+
+        <a href={link}>
+          <Button variant="default" size="lg" className="space-x-3 pr-4">
+            <span>Try {title} now</span>
+
+            <img src="./images/arrow-right.svg" width={32} />
+          </Button>
+        </a>
       </div>
       {/* Image Column */}
       <div className="flex-1">
-        <div className="bg-gradient-to-tr from-purple-100 to-indigo-50 p-6 rounded-2xl shadow-lg">
-          <img
-            src={imageUrl}
-            alt={title}
-            className="w-full h-auto rounded-lg"
-          />
-        </div>
+        {/* <img src={imageUrl} alt={title} className="w-full h-auto rounded-lg" /> */}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -74,55 +80,83 @@ const Products = () => {
   // Sample product data
   const products = [
     {
-      title: "Intuitive Development Environment",
+      title: "Agent",
       description:
-        "Our cutting-edge IDE provides smart autocompletion, integrated debugging tools, and real-time collaboration features that boost developer productivity and streamline the coding process.",
+        "Computer-Use AI Agent (CUA) framework for running agentic RPA workflows  on macOS/Linux, supporting any Vision Language Models (cloud or local).",
+      features: [
+        "AI-powered task automation",
+        "Support for multiple VLMs",
+        "macOS and Linux compatibility",
+      ],
       imageUrl:
         "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=500",
+      isEarlyPreview: false,
+      link: "https://www.trycua.com/",
     },
     {
-      title: "Advanced Deployment Pipeline",
+      title: "Computer",
       description:
-        "Deploy with confidence using our automated CI/CD pipeline that ensures thorough testing, seamless integration, and zero-downtime deployments for maximum reliability and performance.",
+        "Computer Use Interface (CUI) for automated interaction with c/ua Containers, PyAutoGUI-compatible",
+      features: [
+        "PyAutoGUI compatibility",
+        "Seamless container integration",
+        "Intuitive automation interface",
+      ],
       imageUrl:
         "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=500",
       reversed: true,
+      isEarlyPreview: false,
+      link: "https://www.trycua.com/",
     },
     {
-      title: "Powerful Analytics Dashboard",
+      title: "Lume",
       description:
-        "Gain valuable insights into your application's performance with our comprehensive analytics platform, featuring customizable dashboards, real-time monitoring, and actionable intelligence.",
+        "Virtualization layer to run macOS & Linux VMs on Containers with near-native performance on Apple Silicon, powered by Apple's Virtualization.Framework",
+      features: [
+        "Near-native performance",
+        "Apple Silicon optimization",
+        "Container-based virtualization",
+      ],
       imageUrl:
         "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=500",
+      isEarlyPreview: false,
+      link: "https://www.trycua.com/",
+    },
+    {
+      title: "MCP",
+      description:
+        "MCP Server for running Agent from Cursor, Claude Desktop, and other MCP clients",
+      features: [
+        "Multi-client support",
+        "Seamless integration with Cursor",
+        "Claude Desktop compatibility",
+      ],
+      imageUrl:
+        "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=500",
+      isEarlyPreview: true,
+      reversed: true,
+      link: "https://www.trycua.com/",
     },
   ];
 
   return (
-    <section id="products" className="py-24">
+    <section id="products" className="py-24 pb-48">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Products</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our suite of innovative tools and platforms designed to
-            elevate your development workflow.
-          </p>
-        </motion.div>
+        <div className="text-center mb-16">
+          <h1 className="text-7xl text-[#161619] md:text-6xl mb-6">Products</h1>
+        </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto flex flex-col">
           {products.map((product, index) => (
             <ProductCard
               key={index}
               title={product.title}
               description={product.description}
-              imageUrl={product.imageUrl}
+              features={product.features}
+              // imageUrl={product.imageUrl}
               reversed={product.reversed}
-              index={index}
+              isEarlyPreview={product.isEarlyPreview}
+              link={product.link}
             />
           ))}
         </div>

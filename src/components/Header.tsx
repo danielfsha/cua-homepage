@@ -31,7 +31,10 @@ const Header = () => {
         <span className="pb-2">trycua</span>
       </div>
 
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2">
+        <Button size="icon" variant="secondary">
+          <img width={26} height={26} src="./images/moon.svg" />
+        </Button>
         <a
           href="https://github.com/trycua/cua"
           target="_blank"
@@ -56,23 +59,6 @@ const Header = () => {
             </span>
           </Button>
         </a>
-
-        <button className="md:hidden text-gray-700" aria-label="Menu">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
       </div>
     </div>
   );

@@ -14,36 +14,25 @@ const Hero = () => {
             <p>Backed by Y Combinator</p>
           </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-7xl text-[#161619] md:text-6xl mb-6"
-          >
-            Get started with c/ua.
-          </motion.h1>
+          <h1 className="text-7xl text-[#161619] md:text-6xl mb-6">
+            Get started with c/ua
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 max-w-sm"
-          >
+          <p className="text-gray-600 max-w-sm">
             Run Docker Containers for Computer-Use AI Agents on Apple Silicon.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-2"
-          >
-            <Button size="lg">Get Started</Button>
-
-            <Button size="lg" variant="secondary">
-              Learn More
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Button size="lg" className="space-x-3 pr-4">
+              Book a Call
+              <img width={26} height={26} src="/images/calendar.svg" />
             </Button>
-          </motion.div>
+
+            <Button size="lg" variant="secondary" className="space-x-3 pr-4">
+              Watch Demos
+              <img width={26} height={26} src="/images/play.svg" />
+            </Button>
+          </div>
         </div>
 
         {/* Floating Element with Shadow */}
@@ -60,7 +49,7 @@ const Hero = () => {
             initial={{ width: 200, height: "30px", opacity: 0.8 }}
             animate={{
               width: [200, 240, 200],
-              height: ["30px", "40px", "30px"],
+              height: ["20px", "30px", "20px"],
               opacity: [0.5, 0.7, 0.5],
             }}
             transition={{
