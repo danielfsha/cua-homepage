@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 
+import NumberFlow from "@number-flow/react";
+
 const Header = () => {
-  const [starCount, setStarCount] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [starCount, setStarCount] = useState<number>(0);
 
   useEffect(() => {
     const fetchStars = async () => {
@@ -13,10 +14,8 @@ const Header = () => {
           "https://api.github.com/repos/trycua/cua"
         );
         setStarCount(response.data.stargazers_count);
-        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching star count:", error);
-        setIsLoading(false);
       }
     };
 
@@ -51,8 +50,9 @@ const Header = () => {
               ></path>
             </svg>
             <span className="font-medium">
-              {isLoading ? "Loading..." : `${starCount} Stars`}
+              <NumberFlow value={starCount} />
             </span>
+            <img src="/images/star.svg" className="size-5" />
           </Button>
         </a>
 
