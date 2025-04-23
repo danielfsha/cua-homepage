@@ -18,6 +18,11 @@
   src: url("/fonts/Geist/otf/Geist-Thin.otf");
 }
 
+@font-face {
+  font-family: "Geist-Medium";
+  src: url("/fonts/Geist/otf/Geist-Medium.otf");
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -56,16 +61,20 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* custom variables */
+  --font-geist: "Geist", sans-serif;
+  --font-geist-bold: "Geist-Bold", sans-serif;
+  --font-geist-thin: "Geist-Thin", sans-serif;
+  --font-geist-medium: "Geist-Medium", sans-serif;
   --shadow-primary: 0px 10px 20px -7px rgba(78, 255, 246, 0.25);
   --inner-shadow-primary: inset 0px 0px 20px 0px rgba(235, 235, 235, 1),
     inset 0px -4px 5px 0px rgba(140, 140, 140, 0.25);
   --animate-grid: grid 15s linear infinite;
   @keyframes grid {
-  0% {
-    transform: translateY(-50%);
+    0% {
+      transform: translateY(-50%);
     }
-  100% {
-    transform: translateY(0);
+    100% {
+      transform: translateY(0);
     }
   }
 }
@@ -104,13 +113,9 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-* {
-  font-family: "Geist", sans-serif;
-}
-
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 font-geist;
   }
   body {
     @apply bg-background text-foreground;

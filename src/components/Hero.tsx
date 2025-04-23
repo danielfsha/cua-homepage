@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 import { RetroGrid } from "./magicui/retro-grid";
+import AnimatedText from "./AnimatedText";
 
 const Hero = () => {
   return (
@@ -14,11 +15,17 @@ const Hero = () => {
             <p>Backed by Y Combinator</p>
           </div>
 
-          <h1 className="text-7xl text-[#161619] md:text-6xl mb-6">
-            Get started with c/ua
-          </h1>
+          <div className="flex justify-center items-center space-x-2 flex-wrap">
+            <h1 className="text-7xl text-[#161619] md:text-6xl mb-6 font-geist-medium">
+              Get started with
+            </h1>
+            <AnimatedText
+              text="c/ua"
+              className="text-7xl text-[#161619] md:text-6xl mb-6 font-geist-medium"
+            />
+          </div>
 
-          <p className="text-gray-600 max-w-sm">
+          <p className="text-gray-500 max-w-sm">
             Run Docker Containers for Computer-Use AI Agents on Apple Silicon.
           </p>
 
