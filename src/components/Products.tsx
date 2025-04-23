@@ -24,7 +24,7 @@ const ProductCard = ({
     <div
       className={`flex flex-col items-center justify-center  ${
         reversed ? "md:flex-row-reverse" : "md:flex-row"
-      } gap-8 items-center mb-32 last:mb-0`} // Reduced mb-24 to mb-12
+      } gap-8 items-center mb-12 last:mb-0`} // Reduced mb-24 to mb-12
     >
       {/* Content Column */}
       <div className="flex-1">

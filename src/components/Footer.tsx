@@ -37,8 +37,9 @@ const Footer = () => {
         </div>
 
         {/* availability */}
-        <p className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-gray-400 font-thin text-[16px] tracking-normal">
-          Available for macOS on Apple Silicon{" "}
+        <p className="flex itemc-center justify-center space-x-2 absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-gray-400 font-thin text-[16px] tracking-normal">
+          <img src="/images/apple-logo.png" className="size-5" />
+          <span>Available for macOS on Apple Silicon </span>
           <span className="text-blue-500">(M1+)</span>
         </p>
 
