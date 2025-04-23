@@ -1,0 +1,92 @@
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+import { RetroGrid } from "./magicui/retro-grid";
+
+const Hero = () => {
+  return (
+    <section id="home" className="pt-8 pb-16 relative">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 space-y-8">
+          <div className="flex items-center justify-centers space-x-4">
+            <img src="/images/ycombinator.svg" width={40} height={40} />
+
+            <p>Backed by Y Combinator</p>
+          </div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-7xl text-[#161619] md:text-6xl mb-6"
+          >
+            Get started with c/ua.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-gray-600 max-w-sm"
+          >
+            Run Docker Containers for Computer-Use AI Agents on Apple Silicon.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-2"
+          >
+            <Button size="lg">Get Started</Button>
+
+            <Button size="lg" variant="secondary">
+              Learn More
+            </Button>
+          </motion.div>
+        </div>
+
+        {/* Floating Element with Shadow */}
+        <div className="relative max-w-lg mx-auto h-80 flex items-center justify-center -my-10">
+          {/* background persective grid  */}
+          <RetroGrid
+            angle={23}
+            cellSize={100}
+            className="absolute bottom-0 left-[50%] object-cover -translate-x-1/2 w-screen bg-transparent"
+          />
+
+          {/* Shadow Element - Expands and retracts */}
+          <motion.div
+            initial={{ width: 200, height: "30px", opacity: 0.8 }}
+            animate={{
+              width: [200, 240, 200],
+              height: ["30px", "40px", "30px"],
+              opacity: [0.5, 0.7, 0.5],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 3,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-0 rounded-full bg-purple-300 blur-xl"
+          />
+
+          {/* Floating Box */}
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [-20, 20, -20] }}
+            transition={{
+              repeat: Infinity,
+              duration: 4,
+              ease: "easeInOut",
+            }}
+          >
+            <img src="/images/cua-logo.svg" width={230} height={230} />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
