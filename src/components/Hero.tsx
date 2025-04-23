@@ -11,17 +11,16 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 space-y-8">
           <div className="flex items-center justify-centers space-x-4">
             <img src="/images/ycombinator.svg" width={40} height={40} />
-
             <p>Backed by Y Combinator</p>
           </div>
 
-          <div className="flex justify-center items-center space-x-2 flex-wrap">
-            <h1 className="text-7xl text-[#161619] md:text-6xl mb-6 font-geist-medium">
+          <div className="flex justify-center items-center space-x-2 flex-wrap -mt-2">
+            <h1 className="text-7xl text-[#161619] md:text-6xl font-geist-medium">
               Get started with
             </h1>
             <AnimatedText
               text="c/ua"
-              className="text-7xl text-[#161619] md:text-6xl mb-6 font-geist-medium"
+              className="text-7xl text-[#161619] md:text-6xl font-geist-medium"
             />
           </div>
 

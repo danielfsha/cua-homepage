@@ -5,7 +5,7 @@ type ProductProps = {
   title: string;
   description: string;
   features: string[];
-  // imageUrl: string;
+  imageUrl: string;
   reversed?: boolean;
   isEarlyPreview?: boolean;
   link: string;
@@ -15,14 +15,14 @@ const ProductCard = ({
   title,
   description,
   features,
-  // imageUrl,
+  imageUrl,
   reversed,
   isEarlyPreview,
   link,
 }: ProductProps) => {
   return (
     <div
-      className={`flex flex-col ${
+      className={`flex flex-col items-center justify-center  ${
         reversed ? "md:flex-row-reverse" : "md:flex-row"
       } gap-8 items-center mb-32 last:mb-0`} // Reduced mb-24 to mb-12
     >
@@ -70,8 +70,8 @@ const ProductCard = ({
         </a>
       </div>
       {/* Image Column */}
-      <div className="flex-1">
-        {/* <img src={imageUrl} alt={title} className="w-full h-auto rounded-lg" /> */}
+      <div className="flex-1 h-full items-center justify-center">
+        <img src={imageUrl} alt={title} className="w-full h-auto rounded-lg" />
       </div>
     </div>
   );
@@ -90,8 +90,7 @@ const Products = () => {
         "Support for multiple VLMs",
         "macOS and Linux compatibility",
       ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=500",
+      imageUrl: "./images/agent.svg",
       isEarlyPreview: false,
       link: "https://www.trycua.com/",
     },
@@ -104,8 +103,7 @@ const Products = () => {
         "Seamless container integration",
         "Intuitive automation interface",
       ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=500",
+      imageUrl: "./images/computer.svg",
       reversed: true,
       isEarlyPreview: false,
       link: "https://www.trycua.com/",
@@ -119,8 +117,7 @@ const Products = () => {
         "Apple Silicon optimization",
         "Container-based virtualization",
       ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=500",
+      imageUrl: "./images/lume.svg",
       isEarlyPreview: false,
       link: "https://www.trycua.com/",
     },
@@ -133,8 +130,7 @@ const Products = () => {
         "Seamless integration with Cursor",
         "Claude Desktop compatibility",
       ],
-      imageUrl:
-        "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=500",
+      imageUrl: "./images/mcp.svg",
       isEarlyPreview: true,
       reversed: true,
       link: "https://www.trycua.com/",
@@ -157,7 +153,7 @@ const Products = () => {
               title={product.title}
               description={product.description}
               features={product.features}
-              // imageUrl={product.imageUrl}
+              imageUrl={product.imageUrl}
               reversed={product.reversed}
               isEarlyPreview={product.isEarlyPreview}
               link={product.link}

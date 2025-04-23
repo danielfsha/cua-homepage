@@ -33,8 +33,15 @@ const Footer = () => {
         {/* Logo on the left */}
         <div className="flex items-center justify-center space-x-2">
           <img width={43} height={43} src="./images/cua-logo.svg" />
-          <span className="pb-2">trycua</span>
+          <span className="text-[16px]">trycua @2025</span>
         </div>
+
+        {/* availability */}
+        <p className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-gray-400 font-thin text-[16px] tracking-normal">
+          Available for macOS on Apple Silicon{" "}
+          <span className="text-blue-500">(M1+)</span>
+        </p>
+
         {/* Social links on the right */}
         <div className="flex space-x-6">
           {socialLinks.map((item) => (
@@ -43,7 +50,7 @@ const Footer = () => {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 font-thin text-[16px] tracking-normal"
+              className="text-gray-400 font-thin text-[16px] tracking-normal hover:text-blue-500"
             >
               {item.name}
             </a>

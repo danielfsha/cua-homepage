@@ -31,9 +31,6 @@ const Header = () => {
       </div>
 
       <div className="flex items-center space-x-2">
-        <Button size="icon" variant="secondary">
-          <img width={26} height={26} src="./images/moon.svg" />
-        </Button>
         <a
           href="https://github.com/trycua/cua"
           target="_blank"
@@ -58,6 +55,10 @@ const Header = () => {
             </span>
           </Button>
         </a>
+
+        <Button size="icon" variant="secondary">
+          <img width={26} height={26} src="./images/moon.svg" />
+        </Button>
       </div>
     </div>
   );
