@@ -52,7 +52,7 @@ const Header = () => {
             <span className="font-medium">
               <NumberFlow value={starCount} />
             </span>
-            <img src="/images/star.svg" className="size-5" />
+            <img src="/images/star.png" className="size-5" />
           </Button>
         </a>
 
